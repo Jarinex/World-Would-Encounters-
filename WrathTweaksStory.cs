@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Items;
@@ -33,83 +34,15 @@ using System.Collections.Generic;
 using System.Linq;
 
 
+
+
 namespace WrathTweakMod
 {
 
+    
 
     class WrathStoryTweaks
     {
-  
-
-
-        static Consideration NoBuffBlur = ResourcesLibrary.TryGetBlueprint<BuffConsideration>("8a629688cbc97c142a5e7a41794c12c4");
-       
-
-
-
-
-        static class Spells
-        {
-            public static BlueprintAbility cape_of_wasps = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e418c20c8ce362943a8025d82c865c1c");
-           
-            
-     
-
-
-        }
-
-
-
-        static class AiActions
-        {
-
-            static public BlueprintAiCastSpell MakePreCast(BlueprintAiCastSpell from)
-            {
-                BlueprintAiCastSpell action = new BlueprintAiCastSpell();
-                action.name = from.name.Replace("SLE_", "SLE_PRECAST_");
-                return action;
-            }
-            
-
-            static public BlueprintAiCastSpell cape_of_wasps_cast_first = createCastSpellAction("CastCapeOfWaspsBuff", Spells.cape_of_wasps,
-                                                                                     new Consideration[] { },
-                                                                                     new Consideration[] { },
-                                                                                     base_score: 20.0f, combat_count: 1);
-
-
-            
-
-        }
-
-
-
-
-
-        static BlueprintAiCastSpell createCastSpellAction(string name, BlueprintAbility spell, Consideration[] actor_consideration, Consideration[] target_consideration,
-                                              float base_score = 1f, BlueprintAbility variant = null, int combat_count = 0, int cooldown_rounds = 0, int start_cooldown_rounds = 0, string guid = "", bool pre_cast = false)
-        {
-            BlueprintAiCastSpell action = new BlueprintAiCastSpell();
-            action.m_Ability = spell.ToReference<BlueprintAbilityReference>();
-            action.m_Variant = variant.ToReference<BlueprintAbilityReference>();
-            action.m_ActorConsiderations = actor_consideration.Select(a => a.ToReference<ConsiderationReference>()).ToArray();
-            action.m_TargetConsiderations = target_consideration.Select(a => a.ToReference<ConsiderationReference>()).ToArray();
-            // if (pre_cast)
-            //  action.name = "SLE_PRECAST_" + name;
-            // else
-            //   action.name = "SLE_" + name;
-            action.BaseScore = base_score;
-            action.CombatCount = combat_count;
-            action.CooldownRounds = cooldown_rounds;
-            action.StartCooldownRounds = start_cooldown_rounds;
-
-
-
-            return action;
-        }
-
- 
-
-      
 
 
         static internal void load()
@@ -118,7 +51,10 @@ namespace WrathTweakMod
             //Test
 
             updateGiantFly();
-           
+            updateCultistEvoker();
+            updateWightFighter();
+
+
 
         }
 
@@ -134,6 +70,7 @@ namespace WrathTweakMod
             var displacement = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("00402bae4442a854081264e498e7a833");
             var capeofwasps = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e418c20c8ce362943a8025d82c865c1c");
 
+
             GiantFly.m_AddFacts = GiantFly.m_AddFacts.AddToArray(displacement.ToReference<BlueprintUnitFactReference>());
             GiantFly.m_AddFacts = GiantFly.m_AddFacts.AddToArray(capeofwasps.ToReference<BlueprintUnitFactReference>());
 
@@ -145,12 +82,77 @@ namespace WrathTweakMod
 
 
             var brain = ResourcesLibrary.TryGetBlueprint<BlueprintBrain>("f5a012b8d0dab4f45924dcb2609df7b0");
-            var test = ResourcesLibrary.TryGetBlueprint<BlueprintAiCastSpell>("a7f53648140a4e05991d4727bb0185ea");
+            var test = ResourcesLibrary.TryGetBlueprint<BlueprintAiCastSpell>("72a9d5d322d34304b06ddb68e9ce2063");
             brain.m_Actions = brain.m_Actions.AddToArray(test.ToReference<BlueprintAiActionReference>());
 
         }
 
-       
+        static void updateCultistEvoker()
+        {
+
+            var CultistEvoker = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>("46d14b326c3a8f549941ec2573ce0cd0");
+            var displacement = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("00402bae4442a854081264e498e7a833");
+            var displacementability = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("903092f6488f9ce45a80943923576ab3");
+            var iceprisonability = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("65e8d23aef5e7784dbeb27b1fca40931");
+            
+
+
+            CultistEvoker.m_AddFacts = CultistEvoker.m_AddFacts.AddToArray(displacement.ToReference<BlueprintUnitFactReference>());
+
+            CultistEvoker.MaxHP = 9000;
+
+
+
+            CultistEvoker.Body.m_PrimaryHand = ResourcesLibrary.TryGetBlueprint<BlueprintItemWeapon>("c9e68ffc43bf8f349905e4c6cab539b8").ToReference<BlueprintItemEquipmentHandReference>();
+            
+            //CultistEvoker.GetComponent<AddClassLevels>().m_CharacterClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd").ToReference<BlueprintCharacterClassReference>();
+            //Above code changes classes
+
+
+
+            CultistEvoker.GetComponent<AddClassLevels>().Levels = 15;
+            CultistEvoker.GetComponent<Experience>().CR = 15;
+
+            CultistEvoker.GetComponent<AddClassLevels>().m_SelectSpells = CultistEvoker.GetComponent<AddClassLevels>().m_SelectSpells.AddToArray<BlueprintAbilityReference>(displacementability.ToReference<BlueprintAbilityReference>());
+
+            CultistEvoker.GetComponent<AddClassLevels>().m_SelectSpells = CultistEvoker.GetComponent<AddClassLevels>().m_SelectSpells.RemoveFromArray<BlueprintAbilityReference>(iceprisonability.ToReference<BlueprintAbilityReference>());
+
+        }
+
+        static void updateWightFighter()
+        {
+
+            var WightFigter = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>("4ae78e4aa82d37a4cb6cbfbcdcc93195");
+            var FighterClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+            var UndeadClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("19a2d9e58d916d04db4cd7ad2c7a3ee2");
+            var dumbmonsterbrain = Resources.GetBlueprint<BlueprintBrain>("5abc8884c6f15204c8604cb01a2efbab");
+            var capeofwasps = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e418c20c8ce362943a8025d82c865c1c");
+
+            WightFigter.m_AddFacts = WightFigter.m_AddFacts.AddToArray(capeofwasps.ToReference<BlueprintUnitFactReference>());
+
+            WightFigter.GetComponents<AddClassLevels>()
+            .Where(c => c.m_CharacterClass.Get() == FighterClass)
+            .First().Levels = 7;
+
+            var WightFighterBrain = Helpers.CreateCopy(dumbmonsterbrain, bp => {
+                bp.AssetGuid = new BlueprintGuid(System.Guid.Parse("6cb77b6d51e84f04bbe644d69383a69c"));
+                bp.name = "WightFighterBrain";
+                
+            });
+
+
+
+            Resources.AddBlueprint(WightFighterBrain);
+
+            WightFigter.m_Brain = ResourcesLibrary.TryGetBlueprint<BlueprintBrain>("6cb77b6d51e84f04bbe644d69383a69c").ToReference<BlueprintBrainReference>();
+
+
+            var brain = ResourcesLibrary.TryGetBlueprint<BlueprintBrain>("5abc8884c6f15204c8604cb01a2efbab");
+            var test = ResourcesLibrary.TryGetBlueprint<BlueprintAiCastSpell>("72a9d5d322d34304b06ddb68e9ce2063");
+            brain.m_Actions = brain.m_Actions.AddToArray(test.ToReference<BlueprintAiActionReference>());
+
+        }
+
 
 
         public override string ToString()
