@@ -4,19 +4,25 @@ using System.Reflection;
 using Kingmaker.Blueprints;
 using System.Collections.Generic;
 using HarmonyLib;
-
+using Kingmaker.ElementsSystem;
 using Kingmaker.Blueprints.JsonSystem;
 using JetBrains.Annotations;
 using System.Linq;
-
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Components;
 using dnlib.DotNet;
-
-
-
+using Kingmaker.Localization;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.PubSubSystem;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Controllers;
+using Kingmaker.AI.Blueprints;
 
 
 namespace WrathTweakMod
 {
+
+  
     static class Resources
     {
         public static readonly Dictionary<BlueprintGuid, SimpleBlueprint> ModBlueprints = new Dictionary<BlueprintGuid, SimpleBlueprint>();
@@ -41,6 +47,7 @@ namespace WrathTweakMod
             T value = asset as T;
             if (value == null) { Main.Error($"COULD NOT LOAD: {id} - {typeof(T)}"); }
             return value;
+
         }
         public static void AddBlueprint([NotNull] BlueprintScriptableObject blueprint)
         {
@@ -125,7 +132,90 @@ namespace WrathTweakMod
             return list.Remove(value) ? list.ToArray() : array;
         }
 
+        public static ActionList CreateActionList(params GameAction[] actions)
+        {
+            if (actions == null || actions.Length == 1 && actions[0] == null) actions = Array.Empty<GameAction>();
+            return new ActionList() { Actions = actions };
+        }
 
+
+
+
+        public static AbilityEffectRunAction CreateRunActions(params GameAction[] actions)
+         {
+            var result = Create<AbilityEffectRunAction>();
+             result.Actions = CreateActionList(actions);
+            return result;
+        }
+
+        public static T[] AppendToArray<T>(this T[] array, T value)
+        {
+            var len = array.Length;
+            var result = new T[len + 1];
+            Array.Copy(array, result, len);
+            result[len] = value;
+            return result;
+        }
+
+        // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
+        static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
+        public static LocalizedString CreateString(string key, string value)
+        {
+            // See if we used the text previously.
+            // (It's common for many features to use the same localized text.
+            // In that case, we reuse the old entry instead of making a new one.)
+            LocalizedString localized;
+            if (textToLocalizedString.TryGetValue(value, out localized))
+            {
+                return localized;
+            }
+            var strings = LocalizationManager.CurrentPack.Strings;
+
+            strings[key] = value;
+            localized = new LocalizedString
+            {
+                m_Key = key
+            };
+            textToLocalizedString[value] = localized;
+            return localized;
+        }
+
+
+
+
+        public static void SetNameDescription(this BlueprintUnitFact feature, BlueprintUnitFact other)
+        {
+            feature.m_DisplayName = other.m_DisplayName;
+            feature.m_Description = other.m_Description;
+        }
+
+        public static void SetName(this BlueprintUnitFact feature, LocalizedString name)
+        {
+            feature.m_DisplayName = name;
+        }
+
+        public static void SetName(this BlueprintUnitFact feature, String name)
+        {
+            feature.m_DisplayName = Helpers.CreateString(feature.name + ".Name", name);
+        }
+
+        public static void SetDescriptionUntagged(this BlueprintUnitFact feature, String description)
+        {
+            feature.m_Description = Helpers.CreateString(feature.name + ".Description", description);
+        }
+
+        public static void SetDescription(this BlueprintUnitFact feature, LocalizedString description)
+        {
+            feature.m_Description = description;
+            //blueprintUnitFact_set_Description(feature) = description;
+        }
+
+        
+
+        public static void AddComponent(this BlueprintScriptableObject obj, BlueprintComponent component)
+        {
+            obj.SetComponents(obj.ComponentsArray.AppendToArray(component));
+        }
 
 
         private class ObjectDeepCopier
@@ -247,7 +337,6 @@ namespace WrathTweakMod
         {
   
 
-
             var components = obj.ComponentsArray;
         var newComponents = new BlueprintComponent[components.Length];
             for (int i = 0; i<components.Length; i++)
@@ -343,14 +432,13 @@ namespace WrathTweakMod
                     {
                         Main.logger.Log("Loading Wrath Tweak Mod");
 
-
-                   
+                    WrathUnitCopy.load();
                     WrathSpellsTweaks.load();
-                       Test.load();
-                        WrathStoryTweaks.load();
+                    Test.load();
+                    WrathStoryTweaks.load();
 
 
-                    }
+                }
 
 
                     catch (Exception ex)

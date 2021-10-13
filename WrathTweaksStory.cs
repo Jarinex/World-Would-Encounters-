@@ -51,6 +51,7 @@ namespace WrathTweakMod
             //Test
 
             updateGiantFly();
+            updateGiantFlyCopy();
             updateCultistEvoker();
             updateWightFighter();
 
@@ -69,10 +70,12 @@ namespace WrathTweakMod
             var GiantFly = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>("7e63418db0c4ec0428ab59c0947d628d");
             var displacement = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("00402bae4442a854081264e498e7a833");
             var capeofwasps = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e418c20c8ce362943a8025d82c865c1c");
-
+            var firefx = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f36e0e6f50f241d40aecbbe145a7b436");
+            var summonfirefly = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1123e55a27974e4891cd96eb2b32271d");
+            
 
             GiantFly.m_AddFacts = GiantFly.m_AddFacts.AddToArray(displacement.ToReference<BlueprintUnitFactReference>());
-            GiantFly.m_AddFacts = GiantFly.m_AddFacts.AddToArray(capeofwasps.ToReference<BlueprintUnitFactReference>());
+            GiantFly.m_AddFacts = GiantFly.m_AddFacts.AddToArray(summonfirefly.ToReference<BlueprintUnitFactReference>());
 
 
 
@@ -81,9 +84,27 @@ namespace WrathTweakMod
             GiantFly.MaxHP = 9000;
 
 
+
             var brain = ResourcesLibrary.TryGetBlueprint<BlueprintBrain>("f5a012b8d0dab4f45924dcb2609df7b0");
-            var test = ResourcesLibrary.TryGetBlueprint<BlueprintAiCastSpell>("72a9d5d322d34304b06ddb68e9ce2063");
-            brain.m_Actions = brain.m_Actions.AddToArray(test.ToReference<BlueprintAiActionReference>());
+            var summonfireflyai = ResourcesLibrary.TryGetBlueprint<BlueprintAiCastSpell>("1c33ba8f335d45c284dafe095854546c");
+            brain.m_Actions = brain.m_Actions.AddToArray(summonfireflyai.ToReference<BlueprintAiActionReference>());
+
+        }
+
+        static void updateGiantFlyCopy()
+        {
+
+            var FireFly = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>("f8bf325a6020435e9719f56a4651b440");
+            var firefx = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f36e0e6f50f241d40aecbbe145a7b436");
+            var barkskin = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("533592a86adecda4e9fd5ed37a028432");
+
+            FireFly.SetName("FireFly");
+
+            
+
+            FireFly.GetComponent<AddFacts>().m_Facts = FireFly.GetComponent<AddFacts>().m_Facts.AddToArray(barkskin.ToReference<BlueprintUnitFactReference>());
+            FireFly.GetComponent<AddFacts>().CasterLevel = 20;
+
 
         }
 

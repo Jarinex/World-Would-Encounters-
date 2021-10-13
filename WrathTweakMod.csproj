@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="AiActions.cs" />
     <Compile Include="WrathTweaksSpells.cs" />
+    <Compile Include="WrathTweaksUnitCopy.cs" />
     <Compile Include="WrathTweaksStory.cs" />
   </ItemGroup>
   <ItemGroup>
