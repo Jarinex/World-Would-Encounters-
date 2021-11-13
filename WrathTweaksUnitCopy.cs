@@ -32,6 +32,10 @@ using Kingmaker.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using Kingmaker.PubSubSystem;
+using Kingmaker;
+using Kingmaker.EntitySystem.Entities;
 
 
 
@@ -41,8 +45,12 @@ namespace WrathTweakMod
 
     
 
+    
+
     class WrathUnitCopy
     {
+
+
 
 
         static internal void load()
@@ -51,7 +59,7 @@ namespace WrathTweakMod
             //Test
 
             updateGiantFlyCopy();
- 
+
 
 
 
@@ -61,12 +69,12 @@ namespace WrathTweakMod
         //Test
 
 
-        
+
         static void updateGiantFlyCopy()
         {
 
             var GiantFly = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>("7e63418db0c4ec0428ab59c0947d628d");
-         
+
 
             var GiantFlyCopy = Helpers.CreateCopy(GiantFly, bp => {
                 bp.AssetGuid = new BlueprintGuid(System.Guid.Parse("f8bf325a6020435e9719f56a4651b440"));
@@ -77,14 +85,16 @@ namespace WrathTweakMod
 
             Resources.AddBlueprint(GiantFlyCopy);
 
-          
+
 
 
 
 
         }
 
-      
+
+
+
 
 
 

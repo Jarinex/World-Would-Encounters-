@@ -16,6 +16,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+	<LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +68,7 @@
     </Compile>
     <Compile Include="AiActions.cs" />
     <Compile Include="WrathTweaksSpells.cs" />
+    <Compile Include="WrathTweaksUnitReplacer.cs" />
     <Compile Include="WrathTweaksUnitCopy.cs" />
     <Compile Include="WrathTweaksStory.cs" />
   </ItemGroup>

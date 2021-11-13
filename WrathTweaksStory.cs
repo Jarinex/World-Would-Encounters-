@@ -100,8 +100,8 @@ namespace WrathTweakMod
 
             FireFly.SetName("FireFly");
 
-            
 
+            FireFly.GetComponent<AddFacts>().m_Facts = FireFly.GetComponent<AddFacts>().m_Facts.AddToArray(firefx.ToReference<BlueprintUnitFactReference>());
             FireFly.GetComponent<AddFacts>().m_Facts = FireFly.GetComponent<AddFacts>().m_Facts.AddToArray(barkskin.ToReference<BlueprintUnitFactReference>());
             FireFly.GetComponent<AddFacts>().CasterLevel = 20;
 

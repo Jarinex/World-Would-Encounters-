@@ -1,4 +1,5 @@
-﻿using UnityModManagerNet;
+﻿
+using UnityModManagerNet;
 using System;
 using System.Reflection;
 using Kingmaker.Blueprints;
@@ -17,6 +18,8 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Controllers;
 using Kingmaker.AI.Blueprints;
+using Kingmaker;
+
 
 
 namespace WrathTweakMod
@@ -126,7 +129,9 @@ namespace WrathTweakMod
 
 
 
-    public static T[] RemoveFromArray<T>(this T[] array, T value)
+
+
+        public static T[] RemoveFromArray<T>(this T[] array, T value)
         {
             var list = array.ToList();
             return list.Remove(value) ? list.ToArray() : array;
@@ -138,7 +143,7 @@ namespace WrathTweakMod
             return new ActionList() { Actions = actions };
         }
 
-
+     
 
 
         public static AbilityEffectRunAction CreateRunActions(params GameAction[] actions)
@@ -380,9 +385,9 @@ namespace WrathTweakMod
 
             internal static UnityModManagerNet.UnityModManager.ModEntry.ModLogger logger;
             internal static HarmonyLib.Harmony harmony;
+            internal static BlueprintScriptableObject Library;
 
-
-            static readonly Dictionary<Type, bool> typesPatched = new Dictionary<Type, bool>();
+        static readonly Dictionary<Type, bool> typesPatched = new Dictionary<Type, bool>();
             static readonly List<String> failedPatches = new List<String>();
             static readonly List<String> failedLoading = new List<String>();
 
@@ -433,9 +438,11 @@ namespace WrathTweakMod
                         Main.logger.Log("Loading Wrath Tweak Mod");
 
                     WrathUnitCopy.load();
+                    WrathUnitReplace.load();
                     WrathSpellsTweaks.load();
                     Test.load();
                     WrathStoryTweaks.load();
+
 
 
                 }
