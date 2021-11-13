@@ -102,8 +102,9 @@ namespace WrathTweakMod
     {
         public static void ReplaceWith(this UnitEntityData toReplace, BlueprintUnit replaceWith)
         {
-            var newUnit = Game.Instance.EntityCreator.ChangeUnitBlueprint(toReplace, replaceWith, false);
+            var newUnit = Game.Instance.EntityCreator.SpawnUnit(replaceWith, toReplace.Position, Quaternion.LookRotation(toReplace.OrientationDirection), null);
             newUnit.GroupId = toReplace.GroupId;
+            toReplace.MarkForDestroy();
         }
     }
 
