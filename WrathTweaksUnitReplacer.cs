@@ -24,19 +24,28 @@ namespace WrathTweakMod
             public BlueprintUnit replacementBlueprint;
         }
 
-        public class UnitReplacementAreaHandler : IAreaHandler
+        public class UnitReplacementAreaHandler : IAreaActivationHandler
         {
             private Dictionary<string, BlueprintUnit> replacements = new();
             private string areaID;
             public void OnAreaDidLoad() //once the area is loaded, check for the original hydra
+            {
+            }
+
+            public void OnAreaBeginUnloading()
+            {
+
+            }
+
+            public void OnAreaActivated()
             {
                 try
                 {
                     // Only do replacements if this is the correct area
                     if (Game.Instance.CurrentlyLoadedArea.AssetGuid.m_Guid.Equals(Guid.Parse(areaID)))
                     {
-                        // Go through all units in the area
-                        foreach (var unit in Game.Instance.State.Units)
+                        // Go through all units in all the loaded scenes
+                        foreach (var unit in Game.Instance.State.LoadedAreaState.GetAllSceneStates().Where(state => state.IsSceneLoaded).SelectMany(state => state.AllEntityData).OfType<UnitEntityData>())
                         {
                             Main.DebugLog($"unit id: {unit.Blueprint.AssetGuid.ToString()}");
 
@@ -53,11 +62,6 @@ namespace WrathTweakMod
                 {
                     Main.DebugError(ex);
                 }
-            }
-
-            public void OnAreaBeginUnloading()
-            {
-
             }
 
             public UnitReplacementAreaHandler(string area, UnitReplacement[] replacementsArray)
@@ -98,9 +102,8 @@ namespace WrathTweakMod
     {
         public static void ReplaceWith(this UnitEntityData toReplace, BlueprintUnit replaceWith)
         {
-            var newUnit = Game.Instance.EntityCreator.SpawnUnit(replaceWith, toReplace.Position, Quaternion.LookRotation(toReplace.OrientationDirection), Game.Instance.State.LoadedAreaState.MainState.Units);
+            var newUnit = Game.Instance.EntityCreator.ChangeUnitBlueprint(toReplace, replaceWith, false);
             newUnit.GroupId = toReplace.GroupId;
-            toReplace.Destroy();
         }
     }
 
