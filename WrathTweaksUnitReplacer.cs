@@ -1,5 +1,4 @@
-﻿
-using dnlib.DotNet;
+﻿using dnlib.DotNet;
 using Kingmaker.Blueprints;
 using Kingmaker.View;
 using System;
@@ -14,11 +13,11 @@ namespace WrathTweakMod
 {
 
 
-   public class WrathUnitReplace
+    public class WrathUnitReplace
 
     {
 
-      public struct UnitReplacement
+        public struct UnitReplacement
         {
             public string originalBlueprint;
             public BlueprintUnit replacementBlueprint;
@@ -84,7 +83,7 @@ namespace WrathTweakMod
         public static string Test = "cd057d4d28be9fc46949fa1148bece7f";
         public static string Firefly = "f8bf325a6020435e9719f56a4651b440";
         public static string caves = " bad465e5404604346bdf71ef50b3299a";
-       
+
 
         internal static void load()
         {
@@ -93,7 +92,7 @@ namespace WrathTweakMod
                 originalBlueprint = Test,
                 replacementBlueprint = Resources.GetBlueprint<BlueprintUnit>(Firefly)
             });
-              
+
         }
     }
 
@@ -109,4 +108,3 @@ namespace WrathTweakMod
     }
 
 }
-

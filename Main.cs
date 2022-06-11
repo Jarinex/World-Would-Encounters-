@@ -13,6 +13,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using dnlib.DotNet;
 using Kingmaker.Localization;
+using Kingmaker.Localization.Shared;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.PubSubSystem;
 using Kingmaker.EntitySystem.Entities;
@@ -162,29 +163,23 @@ namespace WrathTweakMod
             return result;
         }
 
-        // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
-        static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
+static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
+
         public static LocalizedString CreateString(string key, string value)
         {
-            // See if we used the text previously.
-            // (It's common for many features to use the same localized text.
-            // In that case, we reuse the old entry instead of making a new one.)
             LocalizedString localized;
             if (textToLocalizedString.TryGetValue(value, out localized))
             {
                 return localized;
             }
-            var strings = LocalizationManager.CurrentPack.Strings;
-
-            strings[key] = value;
-            localized = new LocalizedString
-            {
-                m_Key = key
-            };
+            var strings = LocalizationManager.CurrentPack.m_Strings;
+            LocalizationPack.StringEntry oldValue;
+            strings[key] = new LocalizationPack.StringEntry() { Text = value };
+            localized = new LocalizedString();
+            localized.m_Key = key;
             textToLocalizedString[value] = localized;
             return localized;
         }
-
 
 
 

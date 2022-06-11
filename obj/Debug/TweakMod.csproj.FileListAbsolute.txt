@@ -1,0 +1,52 @@
+C:\Users\Josiah\Desktop\New folder (11)\Debugging Folder\Properties\Settings.Designer.cs
+C:\Users\Josiah\Desktop\New folder (11)\Debugging Folder\Properties\Settings.settings
+C:\Users\Josiah\Desktop\New folder (11)\Debugging Folder\blueprints.txt
+C:\Users\Josiah\Desktop\New folder (11)\Debugging Folder\info.json
+C:\Users\Josiah\Desktop\New folder (11)\Debugging Folder\TweakMod.dll
+C:\Users\Josiah\Desktop\New folder (11)\Debugging Folder\TweakMod.pdb
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.csprojAssemblyReference.cache
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.Properties.Resources.resources
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.csproj.GenerateResource.cache
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.csproj.CoreCompileInputs.cache
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.csproj.CopyComplete
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.dll
+C:\Users\Josiah\Desktop\New folder (11)\Stolen-Land-Encounters-master\obj\Debug\TweakMod.pdb
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Debugging Folder\Properties\Settings.Designer.cs
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Debugging Folder\Properties\Settings.settings
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Debugging Folder\blueprints.txt
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Debugging Folder\info.json
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Debugging Folder\TweakMod.dll
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Debugging Folder\TweakMod.pdb
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.csprojAssemblyReference.cache
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.Properties.Resources.resources
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.csproj.GenerateResource.cache
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.csproj.CoreCompileInputs.cache
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.csproj.CopyComplete
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.dll
+C:\Users\Josiah\Desktop\My Kingmaker Mods\Tweak Mod\Tweak Mod for Kingmaker\Tweak Mod\obj\Debug\TweakMod.pdb
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.csprojAssemblyReference.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.Properties.Resources.resources
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.csproj.GenerateResource.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.csproj.CoreCompileInputs.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.dll
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.pdb
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Debugging Folder\Properties\Settings.settings
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Debugging Folder\Properties\Settings.Designer.cs
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Debugging Folder\blueprints.txt
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Debugging Folder\info.json
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Debugging Folder\TweakMod.dll
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Debugging Folder\TweakMod.pdb
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\Tweak Mod For Kingmaker\Tweak Mod\obj\Debug\TweakMod.csproj.CopyComplete
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\TweakMod.csprojAssemblyReference.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.Properties.Resources.resources
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\TweakMod.csproj.GenerateResource.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\TweakMod.csproj.CoreCompileInputs.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\Properties\Settings.Designer.cs
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\Properties\Settings.settings
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\blueprints.txt
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\info.json
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\WrathTweakMod.dll
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\WrathTweakMod.pdb
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\TweakMod.csproj.CopyComplete
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.dll
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.pdb

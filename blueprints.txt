@@ -1,1 +1,0 @@
-CastCapeOfWaspsBuff	  a7f53648140a4e05991d4727bb0185ea	Kingmaker.AI.Blueprints.BlueprintAiCastSpell

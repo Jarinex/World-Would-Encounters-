@@ -1,0 +1,13 @@
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\Properties\Settings.Designer.cs
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\Properties\Settings.settings
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\blueprints.txt
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\info.json
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\WrathTweakMod.dll
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Debugging Folder\WrathTweakMod.pdb
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.csprojAssemblyReference.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.Properties.Resources.resources
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.csproj.GenerateResource.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.csproj.CoreCompileInputs.cache
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.csproj.CopyComplete
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.dll
+C:\Users\josia\OneDrive\Desktop\My Kingmaker Mods\World Wound Encounters Super Early\Tweak Mod\obj\Debug\WrathTweakMod.pdb
